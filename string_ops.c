@@ -33,7 +33,7 @@ char* del(char* str, char* substr);
 /**
 * replace all of the char or the substring with another in the string
 */
-char* replace(char* str, char* new, char* old);
+char* replace(char* str, char* rep, char* origin);
 
 /**
 * sort of string(from small to big with ASCII code)
