@@ -4,53 +4,69 @@
 
 #define SIZE_OF_BUFFER 20
 
-#define bool int
-#define true 1
-#define false o
+#define BOOL int
+#define TRUE 1
+#define FALSE o
+
 
 /**
-* return the size of string
+* create a buffer, size is #define SIZE_OF_BUFFER
 */
-int get_strlen(char* str);
+char* buff_create();
+
+/**
+* free a buffer
+*/
+BOOL buff_free(char *buff);
+
+/**
+* init the 1st char of buff to "\0"
+*/
+BOOL buff_clean(char *buff);
+
+/**
+* return the size of string, char* str is the original string.
+*/
+int str_getlen(char* str);
 
 /**
 * return the status of buffer (full)
 */
-bool isfull_buffer(char* str);
+BOOL buff_isfull(char* str);
 
 /**
 * return the status of buffer (empty)
 */
-bool isempty_buffer(char* str);
+BOOL buff_isempty(char* str);
 
 /**
 * return the first location of char or the first char of substring
 */
-int get_location_string(char* str, char* substr);
+int str_getlocation(char* str, char* substr);
 
 /**
-* add a char or a substring to the string
+* insert a char or a substring to the string
 */
-char* add(char* str, char* substr, int index);
+char* str_insert(char* str, char* substr, int index);
 
 /**
 * delete all of the char or the substring from the string
 */
-char* del(char* str, char* substr);
+char* str_del(char* str, char* substr);
 
 /**
 * replace all of the char or the substring with another in the string
 */
-char* replace(char* str, char* rep, char* origin);
+char* str_replace(char* str, char* rep, char* origin);
 
 /**
 * sort of string(from small to big with ASCII code)
 */
-char* sort(char* str);
+char* str_sort(char* str);
 
 /**
-* return the number of recurring substring in the string
+* return the times of a substring repeat in a string
 */
-int repetition(char* str, char* substr);
+int str_rep(char* str, char* substr);
 
 #endif /* STRING_OPS_H_ */
