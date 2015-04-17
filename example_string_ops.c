@@ -4,8 +4,12 @@
 
 int main()
 {
-	char* str = "abcedefasifdf";
-	int len_str = get_strlen(str);
+	char* str = "abcedefasidefdfz";
+	char* substr = "def";
+	int len_str = str_getlen(str);
+	printf("str_getlen() : %d\n",len_str);
+	printf("str_getlocation(def) : %d\n",str_getlocation(str,substr));
+	printf("hello , world !\n");
 	return 0;
 }
 

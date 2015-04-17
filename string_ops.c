@@ -21,7 +21,15 @@ BOOL buff_clean(char *buff);
 /**
 * 4. return the size of string, char* str is the original string.
 */
-int str_getlen(char* str);
+int str_getlen(char* str)
+{
+	int len = 0;
+	while('\0' != *(str + len))
+	{
+		len++;
+	}
+	return len;
+}
 
 /**
 * 5. return the status of buffer (full)
@@ -36,7 +44,30 @@ BOOL buff_isempty(char* str);
 /**
 * 7. return the first location of char or the first char of substring
 */
-int str_getlocation(char* str, char* substr);
+int str_getlocation(char* str, char* substr)
+{
+	int len_str = 0;
+	int len_substr = str_getlen(substr);
+	BOOL res = FALSE;
+	while(('\0' != *(str + len_str)) && !res)
+	{
+		if(*(substr) == *(str +len_str))
+		{
+			res = TRUE;
+			int i;
+			for(i=0;i<len_substr;i++)
+			{
+				if(*(str + len_str + i) != *(substr + i))
+				{
+					res = FALSE;
+					break;
+				}
+			}
+		}
+		len_str++;
+	}
+	return (len_str - 1);
+}
 
 /**
 * 8. insert a char or a substring to the string
@@ -51,7 +82,17 @@ char* str_del(char* str, char* substr);
 /**
 * 10. replace all of the char or the substring with another in the string
 */
-char* str_replace(char* str, char* rep, char* origin);
+char* str_replace(char* str, char* rep, char* origin)
+{
+	if(!str_compare(rep, origin))
+	{
+		int loc = 0;
+		while(loc < str_getlen(str))
+		{
+			loc = str_getlocation(str, origin);
+		}
+	}
+}
 
 /**
 * 11. sort of string(from small to big with ASCII code)
@@ -62,5 +103,33 @@ char* str_sort(char* str);
 * 12. return the times of a substring repeat in a string
 */
 int str_rep(char* str, char* substr);
+
+/**
+* 13. compare between two string
+*/
+BOOL str_compare(char* str, char* substr)
+{
+	BOOL res = TRUE;
+	if(str_getlen(str) != str_getlen(substr))
+	{
+		res = FALSE;
+	}else{
+		int i = 0;
+		while('\0' != *(str + i) && '\0' != *(substr + i))
+		{
+			if(*(str + i) != *(substr + i))
+			{
+				res = FALSE;
+				break;
+			}
+		}
+	}
+	return res;
+}
+
+/**
+* 14. copy a string from buffer
+*/
+char* str_copy(char* str);
 
 

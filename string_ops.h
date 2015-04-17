@@ -6,7 +6,7 @@
 
 #define BOOL int
 #define TRUE 1
-#define FALSE o
+#define FALSE 0
 
 
 /**
@@ -68,5 +68,15 @@ char* str_sort(char* str);
 * 12. return the times of a substring repeat in a string
 */
 int str_rep(char* str, char* substr);
+
+/**
+* 13. compare between two string
+*/
+BOOL str_compare(char* str, char* substr);
+
+/**
+* 14. copy a string from buffer
+*/
+char* str_copy(char* str);
 
 #endif /* STRING_OPS_H_ */
