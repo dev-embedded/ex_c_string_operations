@@ -60,4 +60,4 @@ char* str_sort(char* str);
 */
 int str_rep(char* str, char* substr);
 
-#endif /* STRING_OPS_H_ */
+
