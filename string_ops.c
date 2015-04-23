@@ -4,7 +4,6 @@
 * create a buffer, size is #define SIZE_OF_BUFFER
 */
 char* buff_create();
-
 /**
 * free a buffer
 */
@@ -60,4 +59,4 @@ char* str_sort(char* str);
 */
 int str_rep(char* str, char* substr);
 
-#endif /* STRING_OPS_H_ */
+
