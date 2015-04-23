@@ -10,10 +10,12 @@ char* buff_create()
 }
 
 /**
- * 2. free a buffer
+ * 2. free a buffer  (by ZS)
  */
-BOOL buff_free(char *buff);
-
+BOOL buff_free(char *buff);{
+	//int *ptr = (int*) malloc(*buff); // create a buffer with sizeof buff
+	void free(ptr);
+}
 /**
  * 3. init the 1st char of buff to "\0"
  */
