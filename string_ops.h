@@ -79,4 +79,9 @@ BOOL str_compare(char* str, char* substr);
 */
 char* str_copy(char* str);
 
+/**
+ * 15. write the chars into buffer from string
+ */
+char* buff_write(char* str, char* origin);
+
 #endif /* STRING_OPS_H_ */
