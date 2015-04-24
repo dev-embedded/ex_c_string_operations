@@ -5,7 +5,7 @@
 #define SIZE_OF_BUFFER 20
 #define STR_SIZE 90
 
-#define ABC 123
+#define ABC 456
 
 #define BOOL int
 #define TRUE 1
