@@ -3,6 +3,7 @@
 
 
 #define SIZE_OF_BUFFER 20
+#define STR_SIZE 70
 
 #define BOOL int
 #define TRUE 1
