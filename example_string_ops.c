@@ -5,7 +5,7 @@
 int main()
 {
 	char* str = buff_create();
-	str = "abcedefa";
+	str = "abcedefadef";
 	printf("str:%s\n",str);
 	char* substr = "def";
 	char* rep = "zaqz";

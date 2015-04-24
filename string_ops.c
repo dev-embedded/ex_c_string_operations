@@ -2,7 +2,7 @@
 #include "string_ops.h"
 
 /**
- * 1. create a buffer, size is #define SIZE_OF_BUFFER
+ * 1. create a buffer, sfize is #define SIZE_OF_BUFFER
  */
 char* buff_create()
 {
