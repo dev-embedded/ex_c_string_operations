@@ -70,6 +70,16 @@ char* str_sort(char* str);
 */
 int str_rep(char* str, char* substr);
 
+/**
+* 13. compare between two string
+*/
+BOOL str_compare(char* str, char* substr);
+
+/**
+* 14. copy a string from buffer
+*/
+char* str_copy(char* str);
+
 
 /**
  * a. to compare two strings, if str1 == str2, return 0;
