@@ -14,6 +14,24 @@ int main()
 	printf("=====test of operation of the string======\n");
 	printf("4.str_getlen() : %d\n", str_getlen(str));
 	printf("--------------------\n");
+	printf("5.buff_isfull() : ");
+		BOOL res_full = buff_isfull(str);
+		if (TRUE == res_full)
+		{
+			printf("str is full\n");
+		}else{
+			printf("str is not full\n");
+		}
+		printf("--------------------\n");
+	printf("6.buff_isempty() : ");
+	BOOL res_empty = buff_isempty(str);
+	if (TRUE == res_empty)
+	{
+		printf("str is empty\n");
+	}else{
+		printf("str is not empty\n");
+	}
+	printf("--------------------\n");
 	printf("7.str_getlocation('def') : %d\n", str_getlocation(str, substr));
 	printf("--------------------\n");
 	//printf("8.str_insert(str,'def',3) : %s\n", str_insert(str, substr, 3));

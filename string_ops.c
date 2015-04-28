@@ -58,8 +58,13 @@ BOOL buff_isfull(char* str)
 /**
  * 6. return the status of buffer (empty)
  */
-BOOL buff_isempty(char* str);
-
+BOOL buff_isempty(char* str)
+{
+	if (*str == '\0')
+		return (TRUE);
+	else
+		return (FALSE);
+}
 /**
  * 7. return the first location of char or the first char of substring
  * 	if return -1 , it means that no find.
@@ -132,7 +137,19 @@ char* str_insert(char* str, char* substr, int index)
 /**
  * 9. delete all of the char or the substring from the string
  */
-char* str_del(char* str, char* substr);
+char* str_del(char* str, char* substr)
+{
+	int loc = -1, i;
+	int len = get_strlen(str);
+	int slen = get_strlen(substr);
+	while ((loc = get_strlocation(str, substr)) >= 0)
+	{
+		for (i = 0; i < len - loc - slen; i++)
+			str[loc + i] = str[loc + slen + i]; // to remove substr part from str
+		str[loc + i] = '\0'; //set the end of the new string
+	}
+	return (str);
+}
 
 /**
  * 10. replace all of the char or the substring with another in the string
