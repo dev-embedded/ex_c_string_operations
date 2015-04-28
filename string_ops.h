@@ -59,7 +59,7 @@ char* str_del(char* str, char* substr);
 /**
 * 10. replace all of the char or the substring with another in the string
 */
-char* str_replace(char* str, char* rep, char* origin);
+void str_replace(char* str, char* rep, char* origin);
 
 /**
 * 11. sort of string(from small to big with ASCII code)

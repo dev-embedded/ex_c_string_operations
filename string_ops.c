@@ -137,7 +137,7 @@ char* str_del(char* str, char* substr);
 /**
  * 10. replace all of the char or the substring with another in the string
  */
-char* str_replace(char* str, char* rep, char* origin)
+void str_replace(char* str, char* rep, char* origin)
 {
 	if (!str_compare(rep, origin))
 	{
@@ -164,18 +164,9 @@ char* str_replace(char* str, char* rep, char* origin)
 			*(str_temp + str_temp_len + i + j + 1) = '\0';
 			p = p + loc + origin_len;
 		}
-		//for (j = 0; j < 3; j++) {
-		//	*(str + j) = *(str_temp + j);
-		//	*(str + j + 1) = '\0';
-		//}
-		//*(str) = '\0';
-		//strcpy(str, str_temp);
-		//str[1] = 'F';
-		printf("str_temp:%s\n", str_temp);
-		printf("str:%s\n", str);
+		printf("%s\n", str_temp);
 		free(str_temp);
 	}
-	return str;
 }
 
 /**
