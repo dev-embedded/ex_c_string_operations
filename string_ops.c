@@ -43,7 +43,7 @@ int str_getlen(char* str)
  *    if '\0' in missing the string, return err -1.
  * Note: '\0' is not included in the length of a string, but it is included in buff length.
  */
-BOOL buff_isfull(const char* str)
+BOOL buff_isfull(char* str)
 {
 	int i;
 	for (i = 0; i < STR_SIZE - 1; i++)
@@ -100,12 +100,12 @@ int str_getlocation(char* str, char* substr)
  * 8. Insert a sub-string in a string from the place of index; if the final length
  *    of the string is longer than STR_SIZE, the excess part will be discarded.
  */
-char* str_insert(char* str, const char* substr, const int index)
+char* str_insert(char* str, char* substr, int index)
 {
-	int len = get_strlen(str);
+	int len = str_getlen(str);
 	if (index > len)
 		return (str);   //the index is outside the string
-	int slen = get_strlen(substr);
+	int slen = str_getlen(substr);
 	int i;
 	if ((len + slen) <= STR_SIZE)   //enough space for str + substr
 	{
@@ -173,6 +173,7 @@ char* str_replace(char* str, char* rep, char* origin)
 		//str[1] = 'F';
 		printf("str_temp:%s\n", str_temp);
 		printf("str:%s\n", str);
+		free(str_temp);
 	}
 	return str;
 }
@@ -184,7 +185,7 @@ char* str_sort(char* str)
 {
 	int i, j;
 	char c;
-	int len = get_strlen(str);
+	int len = str_getlen(str);
 	for (i = 0; i < len; i++)
 		for (j = i + 1; j < len; j++)
 			if (str[i] > str[j])
@@ -201,15 +202,15 @@ char* str_sort(char* str)
  *     appear in str.
  *     Specially, if str = "abbbc", and substr = "bb", then return is 2.
  */
-int str_rep(const char* str, const char* substr)
+int str_rep(char* str, char* substr)
 {
 	int c = 0;  // for count the times
-	int loc = get_location(str, substr);
+	int loc = str_getlocation(str, substr);
 	while (loc != -1)
 	{
 		c++;
 		char* temp = str + loc + 1;
-		loc = geyt_location(temp, substr);
+		loc = str_getlocation(temp, substr);
 	}
 	return (c);
 }
@@ -261,7 +262,7 @@ char* buff_write(char* str, char* origin)
  * a. To compare two strings, if str1 == str2, return 0;
  *    if str1 != str2, return (str1-str2).
  */
-int str_cmp(const char* str1, const char* str2)
+int str_cmp(char* str1, char* str2)
 {
 	int i;
 	for (i = 0; i < STR_SIZE; i++)
