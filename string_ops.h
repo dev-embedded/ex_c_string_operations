@@ -3,9 +3,8 @@
 
 
 #define SIZE_OF_BUFFER 20
-#define STR_SIZE 90
 
-#define ABC 111
+#define STR_SIZE 80    //the max length of a string
 
 #define BOOL int
 #define TRUE 1
@@ -20,7 +19,7 @@ char* buff_create();
 /**
 * 2. free a buffer
 */
-BOOL buff_free(char *buff);
+void buff_free(char *buff);
 
 /**
 * 3. init the 1st char of buff to "\0"
@@ -86,5 +85,17 @@ char* str_copy(char* str);
  * 15. write the chars into buffer from string
  */
 char* buff_write(char* str, char* origin);
+
+/**
+ * a. to compare two strings, if str1 == str2, return 0;
+ *    if str1 > str2, return 1; if str1 < str2, return -1.
+ */
+int str_cmp(char* str1, char* str2);
+
+/**
+ * b. To add two strings, str2 will be add to the end of str1, then return str1.
+ *    The excess part outside STR_SIZE will be discarded.
+ */
+char* str_cat(char* str1, const char* str2);
 
 #endif /* STRING_OPS_H_ */
