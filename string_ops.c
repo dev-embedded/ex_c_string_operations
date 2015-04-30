@@ -2,7 +2,7 @@
 #include "string_ops.h"
 
 /**
- * 1. create a buffer, sfize is #define SIZE_OF_BUFFER
+ * 1. create a buffer, size is #define SIZE_OF_BUFFER
  */
 char* buff_create()
 {
@@ -22,7 +22,9 @@ void buff_free(char *buff)
  * 3. init the 1st char of buff to "\0"
  */
 BOOL buff_clean(char *buff);
-
+{
+	memset(buff, 0, sizeof (buff));
+}
 /**
  * 4. return the size of string, char* str is the original string.
  */
